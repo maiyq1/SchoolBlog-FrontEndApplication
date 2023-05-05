@@ -1,0 +1,107 @@
+<div class="table-wrapper">
+  <h1>Subject Catalogue</h1>
+
+  <h2>{{ isEditMode ? 'Edit subject' : 'Add subject'}}</h2>
+
+  <form (submit)="onSubmit()" #subjectForm='ngForm'>
+
+    <mat-form-field>
+      <input matInput placeholder="Curso" name="name" required
+             [(ngModel)]="subjectData.curse">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Practica 1" name="p1" required
+             [(ngModel)]="subjectData.p1">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Practica 2" name="p2" required
+             [(ngModel)]="subjectData.p2">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Examen Semestral" name="exSemestral" required
+             [(ngModel)]="subjectData.exSemestral">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Examen Final" name="exFinal" required
+             [(ngModel)]="subjectData.exFinal">
+    </mat-form-field>
+
+
+
+
+    <ng-container *ngIf="isEditMode; else elseTemplate">
+      <button mat-button color="primary">Update</button>
+      <button mat-button color="warn" (click)="cancelEdit()">Cancel</button>
+    </ng-container>
+
+    <ng-template #elseTemplate>
+      <button mat-button color="primary">Add</button>
+    </ng-template>
+
+  </form>
+
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> #Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="curse">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> curse</th>
+      <td mat-cell *matCellDef="let element">{{ element.curse }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nota1">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> practica1</th>
+      <td mat-cell *matCellDef="let element">{{ element.p1 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nota2">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> practica2</th>
+      <td mat-cell *matCellDef="let element">{{ element.p2 }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nota3">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> examen semestral</th>
+      <td mat-cell *matCellDef="let element">{{ element.exSemestral }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nota4">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> examen final</th>
+      <td mat-cell *matCellDef="let element">{{ element.exFinal}}</td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="notas">
+       <th mat-header-cell *matHeaderCellDef> notas</th>
+       <td mat-cell *matCellDef="let element">{{ element.notas }}</td>
+     </ng-container>
+
+     <ng-container matColumnDef="notas">
+       <th mat-header-cell *matHeaderCellDef> notas</th>
+       <td mat-cell *matCellDef="let element">{{ element.notas[2] }}</td>
+     </ng-container>
+
+     <ng-container matColumnDef="notas">
+       <th mat-header-cell *matHeaderCellDef> notas</th>
+       <td mat-cell *matCellDef="let element">{{ element.notas[3] }}</td>
+     </ng-container>
+-->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <a href="javascript:void(0)" (click)="editItem(element)"><mat-icon>edit</mat-icon></a>
+        |
+        <a href="javascript:void(0)" (click)="deleteItem(element.id)"><mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{ 'editable-row': subjectData.id === row.id}"></tr>
+  </table>
+  <mat-paginator [pageSize]="6" [pageSizeOptions]="[6, 10, 15]" showFirstLastButtons></mat-paginator>
+</div>
