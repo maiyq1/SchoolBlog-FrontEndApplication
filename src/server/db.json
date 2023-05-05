@@ -1,0 +1,36 @@
+{
+  "evaluaciones": [
+    {
+      "id": 1,
+      "curso": "Matemática",
+      "tipo": "Evaluación mensual",
+      "disponibilidad": "Disponible",
+      "fechaInicio": "12/05/2023 11:00",
+      "fechaFin": "12/05/2023 12:30"
+    },
+    {
+      "id": 2,
+      "curso": "Arte",
+      "tipo": "Evaluación Semestral",
+      "disponibilidad": "No Disponible",
+      "fechaInicio": "13/05/2023 09:00",
+      "fechaFin": "13/05/2023 11:00"
+    },
+    {
+      "id": 3,
+      "curso": "Comunicación",
+      "tipo": "Control Virtual",
+      "disponibilidad": "No Disponible",
+      "fechaInicio": "13/05/2023 09:00",
+      "fechaFin": "13/05/2023 11:00"
+    },
+    {
+      "curso": "Ciencia",
+      "tipo": "Evaluación de Unidad",
+      "disponibilidad": "Disponible",
+      "fechaInicio": "4/05/2023 8:00",
+      "fechaFin": "4/05/2023 11:00",
+      "id": 4
+    }
+  ]
+}
