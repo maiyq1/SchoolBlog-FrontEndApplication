@@ -32,5 +32,23 @@
       "fechaFin": "4/05/2023 11:00",
       "id": 4
     }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "curse": "comunicacion",
+      "p1": 5,
+      "p2": 2,
+      "exSemestral": 9,
+      "exFinal": 4
+    },
+    {
+      "id": 2,
+      "curse": "disponibilidad",
+      "p1": 5,
+      "p2": 5,
+      "exSemestral": 7,
+      "exFinal": 7
+    }
   ]
 }
